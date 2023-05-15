@@ -20,4 +20,4 @@ spec:
             storage: 1Gi
   params: # git address
   - name: repo-url
-    value: "https://github.com/lijahong/tektontest"
+    value: "https://github.com/Dev-0ops/tekton"
