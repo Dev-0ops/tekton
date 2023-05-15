@@ -1,0 +1,28 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: example
+spec:
+  params:
+  - name: string_params
+    type: string
+    default: "string parameter \n"
+
+  - name: default_params
+    default: "default parameter \n"
+
+  - name: array_params
+    type: array
+    default: 
+      - "array parameter #1 \n" 
+      - "array parameter #2 \n"
+
+  steps:
+    - name: echo-task
+      image: ubuntu
+      command:
+        - echo
+      args:
+       - "$(params.string_params)"
+       - "$(params.default_params)"
+       - "$(params.array_params[*])"

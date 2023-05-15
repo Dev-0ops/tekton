@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: runexample
+spec:
+  taskref:
+    name: example
+  params:
+    - name: string_params
+      value: "runtask string parameter echo"
+
+    - name: array_params
+      value:
+        - "array1"
+        - "array2"
+        - "array3"

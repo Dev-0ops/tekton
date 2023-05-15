@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: pipeline-example
+spec:
+  params:
+    - name: string_params
+      type: string
+
+    - name: array_params
+      type: array
+  tasks:
+    - name: pipelien-task
+      taskref:
+        name: task-example
+      params:
+       - name: string_params
+         value: "$(params.string_params)"
+       - name: array_params
+         value: "$(params.array_params[*])"
